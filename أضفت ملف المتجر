@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سَطوة | SATWA</title>
+
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --dark: #1b1f1d;
+      --gold: #b08d57;
+      --muted: #6b716a;
+      --line: #e2ded3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .topbar {
+      padding: 9px;
+      text-align: center;
+      background: var(--dark);
+      color: #e8e0cd;
+      font-size: 12px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 6%;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 26px;
+      letter-spacing: 6px;
+      direction: ltr;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+    }
+
+    .cart-btn {
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 9px 16px;
+      font-size: 13px;
+    }
+
+    .hero {
+      max-width: 1250px;
+      margin: auto;
+      padding: 70px 6%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: var(--gold);
+    }
+
+    h1 {
+      font-size: clamp(44px, 6vw, 78px);
+      font-weight: 400;
+      line-height: 1.3;
+      margin: 18px 0;
+    }
+
+    .hero p {
+      max-width: 420px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--dark);
+      color: white;
+      border: 0;
+      padding: 14px 30px;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      background: #313a34;
+    }
+
+    .hero-art {
+      min-height: 430px;
+      border-radius: 170px 170px 10px 10px;
+      background: linear-gradient(145deg, #e9e2d1, #c9bda3);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .bag {
+      width: 250px;
+      height: 170px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #333b35, #161d18);
+      box-shadow: 20px 30px 40px #0003;
+      transform: rotate(-8deg);
+      display: grid;
+      place-items: center;
+      color: #d3b67c;
+      font-family: Georgia, serif;
+      letter-spacing: 6px;
+      font-size: 19px;
+      position: relative;
+    }
+
+    .bag::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      width: 100px;
+      height: 45px;
+      border: 9px solid #2a322c;
+      border-bottom: 0;
+      border-radius: 25px 25px 0 0;
+    }
+
+    .bag::after {
+      content: "";
+      position: absolute;
+      top: 24px;
+      left: 14px;
+      right: 14px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .strip {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px 65px;
+      padding: 22px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .products {
+      max-width: 1150px;
+      margin: auto;
+      padding: 70px 6%;
+    }
+
+    .heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 34px;
+      font-weight: 400;
+      margin: 8px 0;
+    }
+
+    .heading p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 15px;
+    }
+
+    .card-art {
+      height: 230px;
+      border-radius: 8px;
+      background: #e9e4d8;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .card-art .bag {
+      transform: rotate(-7deg) scale(.72);
+    }
+
+    .card h3 {
+      font-size: 19px;
+      font-weight: 400;
+      margin: 18px 0 5px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 16px;
+    }
+
+    .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .price {
+      font-size: 14px;
+    }
+
+    .add {
+      background: var(--dark);
+      color: white;
+      border: 0;
+      padding: 10px 18px;
+      border-radius: 3px;
+      font-size: 13px;
+    }
+
+    .story {
+      padding: 70px 20px;
+      text-align: center;
+      background: var(--dark);
+      color: #f2ecdf;
+    }
+
+    .story p {
+      max-width: 540px;
+      margin: 14px auto 0;
+      color: #c2c7bf;
+      font-size: 14px;
+    }
+
+    .about {
+      max-width: 700px;
+      margin: auto;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 32px;
+      font-weight: 400;
+      margin: 8px 0;
+    }
+
+    .about p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 12px;
+    }
+
+    .socials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      color: white;
+    }
+
+    .ig {
+      background: radial-gradient(
+        circle at 30% 110%,
+        #fdf497 0%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+      );
+    }
+
+    .fb {
+      background: #1877f2;
+    }
+
+    .tt {
+      background: #000000;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #25d366;
+      color: white;
+      padding: 13px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      box-shadow: 0 8px 20px #0003;
+      z-index: 50;
+    }
+
+    .whatsapp:hover {
+      background: #1da851;
+    }
+
+    dialog {
+      width: min(430px, 92%);
+      padding: 28px;
+      border: 0;
+      border-radius: 14px;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    dialog::backdrop {
+      background: #0008;
+    }
+
+    .cart-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .close {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 50%;
+      font-size: 22px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .qty {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 20px 0;
+    }
+
+    .qty button {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 4px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    #status {
+      min-height: 24px;
+      margin-top: 14px;
+      text-align: center;
+      color: #3f5b45;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 40px 6%;
+        gap: 35px;
+        text-align: center;
+      }
+
+      .hero p {
+        margin: 0 auto 25px;
+      }
+
+      .hero-art {
+        min-height: 330px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <p class="topbar">
+    سَطوة | SATWA — إكسسوارات سفر بهوية هادئة
+  </p>
+
+  <header>
+    <a href="#" class="logo">SATWA</a>
+
+    <nav>
+      <a href="#collection">المجموعة</a>
+      <a href="#about">من نحن</a>
+    </nav>
+
+    <button class="cart-btn" id="open-cart">
+      السلة (<span id="count">0</span>)
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="eyebrow">SATWA — TRAVEL EDIT</span>
+        <h1>سَطوة<br>بأسلوبك.</h1>
+        <p>
+          إكسسوارات سفر مختارة بعناية، بتفاصيل هادئة
+          وحضور واضح في كل رحلة.
+        </p>
+        <a href="#collection" class="btn">اكتشف المجموعة</a>
+      </div>
+
+      <div class="hero-art" role="img"
+           aria-label="رسم توضيحي لحقيبة سفر من سَطوة">
+        <div class="bag">SATWA</div>
+      </div>
+    </section>
+
+    <div class="strip">
+      <span>تفاصيل تصنع الحضور</span>
+      <span>أناقة بلا تكلّف</span>
+      <span>سَطوة | SATWA</span>
+    </div>
+
+    <section id="collection" class="products">
+      <div class="heading">
+        <span class="eyebrow">THE FIRST EDIT</span>
+        <h2>إكسسوارات السفر</h2>
+        <p>منتجات مختارة لتنظيم السفر والتنقل بسهولة وأناقة.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-art" role="img" aria-label="حقيبة تنظيم السفر">
+            <div class="bag">SATWA</div>
+          </div>
+          <h3>حقيبة تنظيم السفر</h3>
+          <p>لتنظيم الأساسيات والوثائق في رحلتك.</p>
+          <div class="card-bottom">
+            <span class="price">99 ر.س</span>
+            <button class="add" data-name="حقيبة تنظيم السفر">أضف للسلة</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-art" role="img" aria-label="حقيبة أحذية للسفر">
+            <div class="bag">SATWA</div>
+          </div>
+          <h3>حقيبة أحذية</h3>
+          <p>لحفظ الأحذية بشكل منظم أثناء السفر.</p>
+          <div class="card-bottom">
+            <span class="price">79 ر.س</span>
+            <button class="add" data-name="حقيبة أحذية">أضف للسلة</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-art" role="img" aria-label="حقيبة وثائق وجواز">
+            <div class="bag">SATWA</div>
+          </div>
+          <h3>حقيبة وثائق</h3>
+          <p>لجواز السفر والتذاكر والبطاقات.</p>
+          <div class="card-bottom">
+            <span class="price">69 ر.س</span>
+            <button class="add" data-name="حقيبة وثائق">أضف للسلة</button>
+          </div>
+        </article>
+      </div>
+
+      <p id="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="story">
+      <span class="eyebrow">THE SATWA CONCEPT</span>
+      <h2>سَطوة، بأسلوبك.</h2>
+      <p>
+        نطوّر فكرة متجر يجمع إكسسوارات السفر بهوية هادئة
+        وحضور واضح. هذه البداية، والمجموعة النهائية ما زالت قيد الاختيار.
+      </p>
+    </section>
+
+    <section id="about" class="about">
+      <span class="eyebrow">ABOUT SATWA</span>
+      <h2>من نحن</h2>
+      <p>
+        سَطوة | SATWA متجر لإكسسوارات السفر.
+        نختار منتجات عملية وأنيقة تساعدك تسافر بتنظيم وأسلوب.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>سَطوة | SATWA — متجر قيد التطوير.</p>
+
+    <div class="socials">
+      <a class="ig" href="https://instagram.com/" target="_blank" aria-label="إنستغرام">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.2" cy="6.8" r="1.1" fill="white" stroke="none"/>
+        </svg>
+      </a>
+
+      <a class="fb" href="https://facebook.com/" target="_blank" aria-label="فيسبوك">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+          <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.5l.5-3H13v-2c0-.6.4-1 1-1z"/>
+        </svg>
+      </a>
+
+      <a class="tt" href="https://tiktok.com/" target="_blank" aria-label="تيك توك">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+          <path d="M16.5 3h-2.8v11.3a2.6 2.6 0 1 1-2.6-2.6c.3 0 .6 0 .8.1V9a5.4 5.4 0 1 0 4.6 5.3V8.2c.9.7 2 1.1 3.2 1.2V6.6c-1.7-.1-3-1.6-3.2-3.6z"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/212600000000" target="_blank" aria-label="تواصل معنا على واتساب">
+    واتساب
+  </a>
+
+  <dialog id="cart" aria-labelledby="cart-title">
+    <div class="cart-head">
+      <h2 id="cart-title">سلتك</h2>
+      <button class="close" id="close-cart" aria-label="إغلاق السلة">×</button>
+    </div>
+
+    <p id="empty">السلة فارغة حاليًا.</p>
+
+    <div id="content" hidden>
+      <div id="items"></div>
+
+      <div class="row">
+        <span>المجموع</span>
+        <span><span id="subtotal">0</span> ر.س</span>
+      </div>
+
+      <div class="row">
+        <span>الشحن</span>
+        <span><span id="shipping">0</span> ر.س</span>
+      </div>
+
+      <div class="row">
+        <span><strong>المجموع النهائي</strong></span>
+        <span><strong><span id="total">0</span> ر.س</strong></span>
+      </div>
+
+      <p class="note">
+        الشحن مجاني للطلبات فوق 150 ر.س.
+      </p>
+    </div>
+
+    <p class="note">
+      سلة تجريبية فقط. لا يتم إرسال طلب أو تحصيل مبلغ.
+    </p>
+  </dialog>
+
+  <script>
+    let cart = [];
+    const dialog = document.getElementById("cart");
+    const status = document.getElementById("status");
+    const shippingFee = 25;
+    const freeShipping = 150;
+
+    function render() {
+      const count = cart.reduce((sum, item) => sum + item.qty, 0);
+      const subtotal = cart.reduce((sum, item) => sum + item.qty * item.price, 0);
+      const shipping = subtotal === 0 || subtotal >= freeShipping ? 0 : shippingFee;
+      const total = subtotal + shipping;
+
+      document.getElementById("count").textContent = count;
+      document.getElementById("subtotal").textContent = subtotal;
+      document.getElementById("shipping").textContent = shipping;
+      document.getElementById("total").textContent = total;
+
+      document.getElementById("empty").hidden = cart.length > 0;
+      document.getElementById("content").hidden = cart.length === 0;
+
+      document.getElementById("items").innerHTML = cart.map((item, index) => `
+        <div class="row">
+          <span>${item.name}</span>
+          <span>${item.price} ر.س</span>
+        </div>
+
+        <div class="qty">
+          <span>الكمية:</span>
+          <button onclick="changeQty(${index}, -1)">−</button>
+          <span>${item.qty}</span>
+          <button onclick="changeQty(${index}, 1)">+</button>
+        </div>
+      `).join("");
+    }
+
+    function changeQty(index, change) {
+      cart[index].qty += change;
+
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+
+      render();
+    }
+
+    document.querySelectorAll(".add").forEach(button => {
+      button.addEventListener("click", () => {
+        const name = button.dataset.name;
+        const price = Number(button.closest(".card").querySelector(".price").textContent.replace(/\D/g, ""));
+
+        const found = cart.find(item => item.name === name);
+
+        if (found) {
+          found.qty++;
+        } else {
+          cart.push({ name, price, qty: 1 });
+        }
+
+        render();
+        status.textContent = `تمت إضافة ${name} إلى السلة التجريبية.`;
+      });
+    });
+
+    document.getElementById("open-cart").addEventListener("click", () => {
+      dialog.showModal();
+    });
+
+    document.getElementById("close-cart").addEventListener("click", () => {
+      dialog.close();
+    });
+
+    render();
+  </script>
+</body>
+</html>
